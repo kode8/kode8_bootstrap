@@ -1,0 +1,33 @@
+{
+  "name": "ui_bootstrap",
+  "version": "1.0",
+  "authors": [
+    "john@johncarroll.io"
+  ],
+  "description": "This is a Frontend Development Bootstrap leveraging Gulp + Foundation 5",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "fastclick": ">=0.6.11",
+    "foundation": "zurb/bower-foundation",
+    "jquery-backstretch": "~2.0.4",
+    "jquery.easing": "~1.3.1",
+    "waypoints": "~3.1.1",
+    "lazyloadxt": "~1.0.5",
+    "jquery": "1.10.2",
+    "jquery-1.10.2": "jquery#1.10.2",
+    "jquery-2": "jquery#~2.1.4",
+    "readmore": "~2.0.5",
+    "modernizr": "~2.8.3",
+    "picturefill": "~2.3.1",
+    "scroll-reveal": "~2.3.2"
+  },
+  "devDependencies": {
+    "picturefill": "~2.3.1",
+    "semantic-ui-icon": "~2.1.4"
+  }
+}

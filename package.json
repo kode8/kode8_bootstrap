@@ -1,0 +1,39 @@
+{
+  "name": "ui_bootstrap",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johncarrollio/ui_bootstrap"
+  },
+  "devDependencies": {
+    "bourbon-libsass": "^1.0.0",
+    "browser-sync": "^2.9.6",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect-php": "0.0.5",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "gulp-watchify": "^0.5.0",
+    "install": "^0.4.4",
+    "node-sass": "~2.0.1",
+    "npm": "^3.7.2",
+    "velocity-animate": "^1.2.3"
+  },
+  "dependencies": {
+    "requirejs": "^2.1.17"
+  }
+}

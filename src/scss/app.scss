@@ -1,0 +1,35 @@
+@import "bootstrap";
+
+body {
+////
+}
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;;
+}
+
+
+@media #{$small-up} { }
+@media #{$small-only} { }
+
+@media #{$medium-up} {
+
+}
+@media #{$medium-only} { }
+
+@media #{$large-up} {
+
+}
+@media #{$large-only} { }
+
+@media #{$xlarge-up} { }
+@media #{$xlarge-only} { }
+
+@media #{$xxlarge-up} { }
+@media #{$xxlarge-only} { }
