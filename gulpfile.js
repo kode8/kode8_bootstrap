@@ -18,7 +18,9 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     stripCssComments = require('gulp-strip-css-comments'),
 		plumber = require('gulp-plumber'),
-		gutil = require('gulp-util');
+		gutil = require('gulp-util'),
+		imageOptim = require('gulp-imageoptim');
+
 
 var modernizr_settings = {
     "cache" : true,
@@ -42,55 +44,53 @@ gulp.task('default', function() {
   // place code for your default task here
 });
 
+/* Compress images */
+gulp.task('images', function() {
+	gulp.src('./src/img/**/*')
+				.pipe(imageOptim.optimize({
+				}))
+        .pipe(gulp.dest('./dist/img'));
+});
+
 /* Browser Sync */
 gulp.task('connect-sync', function() {
+
   connect.server({}, function (){
     browserSync({
       proxy: 'localhost:8000'
     });
   });
-});
-
-/* Basic Browserfy JS bundle usage */
-gulp.task('scripts', function() {
-	/* Single entry point to browserify */
-	gulp.src('./src/js/app.js')
-		.pipe(browserify({
-		  insertGlobals : true,
-		  debug : !gulp.env.production
-		}))
-		.pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
-			// Add transformation tasks to the pipeline here.
-	 	.pipe(sourcemaps.write('./')) // writes .map file
-		.pipe(gulp.dest('./dist/js/build'))
-});
-
-
-
-/* Gulp watch */
-gulp.task('watch', function() {
 
 	var onError = function(err) {
-      notify.onError({
-        title:    "Watch File Error",
-        subtitle: "Failure!",
-        message:  "Error: <%= error.message %>",
-        sound:    "Beep"
-      })(err);
-      this.emit('end');
-  };
+			notify.onError({
+				title:    "Watch File Error",
+				subtitle: "Failure!",
+				message:  "Error: <%= error.message %>",
+				sound:    "Beep"
+			})(err);
+			this.emit('end');
+	};
 
 	/* Watch SCSS */
 	gulp.watch([
 	 './src/scss/*.scss',
-	], ['sass'])
+	], ['sass']).on('change', browserSync.reload);
+
 	/* Watch JS and Browsify file */
 	gulp.watch([
 	 './src/js/*.js',
 	 './src/js/libraries/*.js',
 	 './src/js/libraries/**/*.js',
 	 './src/js/libraries/**/**/*.js'
- ], ['uglifyfile'])
+ 	], ['uglifyfile']).on('change', browserSync.reload);
+
+	/* Watch Images added */
+	gulp.watch('../src/img/**', function(event) {
+    gulp.run('images');
+  });
+
+	/* Watch HTML and PHP  */
+	gulp.watch(['./*.php','./*.html']).on('change', browserSync.reload);
 
 });
 
@@ -172,7 +172,7 @@ gulp.task('uglifyfile', function () {
 	  .pipe(notify({ message: 'Uglify <%= file.relative %>! complete' }))
 });
 
-/* Uglify JS on intial Gulp load */
+/* Uglify supporting libraries on intial Gulp load */
 gulp.task('uglifyfiles', function() {
 
 		var onError = function(err) {
@@ -189,21 +189,12 @@ gulp.task('uglifyfiles', function() {
 			  	'./src/js/*.js',
 			    './src/js/libraries/*.js',
           './src/js/libraries/**/*.js',
-			    './bower_components/fastclick/lib/*.js',
+			    './bower_components/*.js',
 			    './bower_components/jquery-2/dist/jquery.js',
-			    './bower_components/jquery-backstretch/jquery.backstretch.js',
           './bower_components/jquery-placeholder/jquery.placeholder.js',
           './bower_components/jquery.cookie/jquery.cookie.js',
           './bower_components/jquery.easing/js/jquery.easing.js',
-          './bower_components/flickity/dist/flickity.pkgd.js',
-          './bower_components/jquery.inview/jquery.inview.js',
-          './bower_components/jquery.transit/jquery.transit.js',
-          './bower_components/jquery-bridget/jquery.bridget.js',
-          './bower_components/lazyloadxt/dist/jquery.lazyloadxt.js',
-          './bower_components/lazyloadxt/dist/jquery.lazyloadxt.extra.js',
           './bower_components/scroll-reveal/scrollReveal.js',
-          './bower_components/iscroll/build/iscroll.js',
-          './bower_components/readmore/readmore.js',
           './bower_components/waypoints/lib/jquery.waypoints.js',
           './bower_components/foundation/js/foundation.js',
           './bower_components/foundation/js/foundation/*.js',
@@ -211,8 +202,7 @@ gulp.task('uglifyfiles', function() {
           './bower_components/jquery-address/src/jquery.address.js',
           './bower_components/velocity-animate/velocity.ui.js',
           './node_modules/velocity-animate/velocity.js',
-          './node_modules/velocity-animate/velocity.ui.js',
-          './node_modules/requirejs/require.js'])
+          './node_modules/velocity-animate/velocity.ui.js'])
 		.pipe(plumber({errorHandler: onError}))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
@@ -220,9 +210,7 @@ gulp.task('uglifyfiles', function() {
 	  .pipe(notify({ message: 'Uglify <%= file.relative %>! complete' }));
 });
 
-
-
-gulp.task('default', ['connect-sync', 'uglifyfiles','sass','modernizr','scripts','watch']);
+gulp.task('default', ['connect-sync','uglifyfiles','sass','modernizr','images']);
 
 var onError = function (err) {
   gutil.beep();

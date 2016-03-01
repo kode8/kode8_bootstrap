@@ -1,5 +1,5 @@
 {
-  "name": "ui_bootstrap",
+  "name": "RWD_Bootstrap",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -9,12 +9,12 @@
     "bourbon-libsass": "^1.0.0",
     "browser-sync": "^2.9.6",
     "browserify": "^13.0.0",
-    "watchify": "^3.7.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.5",
+    "gulp-imageoptim": "^1.0.2",
     "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.2.1",
@@ -30,10 +30,11 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "gulp-watchify": "^0.5.0",
-    "velocity-animate": "^1.2.3"
     "install": "^0.4.4",
     "node-sass": "~2.0.1",
-    "npm": "^3.7.2"
+    "npm": "^3.7.2",
+    "velocity-animate": "^1.2.3",
+    "watchify": "^3.7.0"
   },
   "dependencies": {}
 }

@@ -14,6 +14,7 @@ $(document).ready(function () {
 	    }
 	});
 
+
 	/* Onscroll enable 60fps */
 	if (!Modernizr.touchevents) {
 	     window.addEventListener('scroll', function() {
