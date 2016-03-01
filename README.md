@@ -1,14 +1,24 @@
-<<<<<<< HEAD
-# ui_bootstrap
+RWD Bootstrap
+===================
 
-Run npm install 
 
-Run bower install 
+This is a RWD Bootstrap leveraging **Foundation 5, Gulp, Browserify** and a host of other Gulp task runners such as Uglify, BrowserSync, SASS, JSHint and Modernizr.
 
-Run gulp 
+----------
 
-Away you go!
-=======
-# bootstrap
-A Frontend out of the box framework leveraging Gulp + Browserfy + Foundation 
->>>>>>> c3194c2d586032f17cc7efea4f33dbc7506775c1
+
+Installation
+-------------
+
+This boostrap requires **NPM Package Manager** and **Bower Package Manager**. Please download and install these first before attempting the install.
+
+Run...
+
+1. git clone https://github.com/kode8/bootstrap.git
+2. npm install
+3. bower install
+4. gulp
+
+That's it.
+
+Foundation overrides and variables and component imports can be found in /src/_bootstrap.scss
