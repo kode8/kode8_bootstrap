@@ -19,8 +19,8 @@ var gulp = require('gulp'),
     stripCssComments = require('gulp-strip-css-comments'),
 		plumber = require('gulp-plumber'),
 		gutil = require('gulp-util'),
-		imageOptim = require('gulp-imageoptim');
-
+		imageOptim = require('gulp-imageoptim'),
+		cssnano = require('gulp-cssnano');
 
 var modernizr_settings = {
     "cache" : true,
@@ -115,9 +115,12 @@ gulp.task('sass', function () {
       './bower_components/foundation/scss',
       './node_modules/bourbon-libsass/dist']
 		}))
-    .pipe(sass({outputStyle: 'compressed'})) // nested, expanded, compact, compressed
-    .pipe(stripCssComments({preserve: false}))
-    .pipe(minifycss())
+    .pipe(sass({outputStyle: 'expanded'})) // nested, expanded, compact, compressed
+    //.pipe(stripCssComments({preserve: false}))
+    //.pipe(minifycss())
+		.pipe(sourcemaps.init())
+		.pipe(cssnano())
+		.pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'))
 		.pipe(notify({ message: 'SASS task complete' }))
 });

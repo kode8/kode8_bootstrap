@@ -17,9 +17,11 @@ This boostrap requires **NPM Package Manager** and **Bower Package Manager**. Pl
 Run...
 
 1. git clone https://github.com/kode8/bootstrap.git
-2. npm install
-3. bower install
-4. gulp
+2. cd bootstrap
+3. Install https://imageoptim.com/ for MacOS, this is used for the automatic image compression in Gulp
+3. npm install
+4. bower install
+5. gulp
 
 That's it.
 
