@@ -1,5 +1,6 @@
 'use strict';
 
+/* test */
 var gulp = require('gulp'),
 		browserify = require('gulp-browserify'),
 		watchify = require('gulp-watchify'),
