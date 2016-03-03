@@ -21,6 +21,6 @@ Run...
 3. bower install
 4. gulp
 
-That's it...
+That's it.
 
 Foundation overrides and variables and component imports can be found in /src/_bootstrap.scss
