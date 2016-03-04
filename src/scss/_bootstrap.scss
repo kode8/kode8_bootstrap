@@ -241,7 +241,7 @@ $i : 0;
   }
 }
 
-/* ntialiasing mode font rendering */
+/* Antialiasing mode font rendering */
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

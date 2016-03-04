@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-////
+
 }
 html {
   -webkit-box-sizing: border-box;
@@ -13,7 +13,6 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;;
 }
-
 
 @media #{$small-up} { }
 @media #{$small-only} { }

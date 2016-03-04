@@ -1,6 +1,5 @@
 'use strict';
 
-/* test */
 var gulp = require('gulp'),
 		browserify = require('gulp-browserify'),
 		watchify = require('gulp-watchify'),
@@ -15,9 +14,6 @@ var gulp = require('gulp'),
 	  notify = require("gulp-notify"),
 	  watch = require("gulp-watch"),
 	  jshint = require('gulp-jshint'),
-    less = require('gulp-less'),
-    minifycss = require('gulp-minify-css'),
-    stripCssComments = require('gulp-strip-css-comments'),
 		plumber = require('gulp-plumber'),
 		gutil = require('gulp-util'),
 		imageOptim = require('gulp-imageoptim'),
@@ -75,7 +71,12 @@ gulp.task('connect-sync', function() {
 	/* Watch SCSS */
 	gulp.watch([
 	 './src/scss/*.scss',
-	], ['sass']).on('change', browserSync.reload);
+	], ['sass']);
+
+	/* Reload browser window on CSS updates */
+	gulp.watch([
+	 './dist/css/app.css',
+	]).on('change', browserSync.reload)
 
 	/* Watch JS and Browsify file */
 	gulp.watch([
@@ -84,6 +85,11 @@ gulp.task('connect-sync', function() {
 	 './src/js/libraries/**/*.js',
 	 './src/js/libraries/**/**/*.js'
  	], ['uglifyfile']).on('change', browserSync.reload);
+
+	/* Reload browser window on JS updates */
+	gulp.watch([
+	 './dist/js/*.js'
+ 	]).on('change', browserSync.reload);
 
 	/* Watch Images added */
 	gulp.watch('../src/img/**', function(event) {
@@ -112,14 +118,16 @@ gulp.task('sass', function () {
   return gulp.src([
 		'./src/scss/app.scss'])
 		.pipe(plumber({errorHandler: onError}))
-    .pipe(sass({includePaths: [
-      './bower_components/foundation/scss',
-      './node_modules/bourbon-libsass/dist']
-		}))
-    .pipe(sass({outputStyle: 'expanded'})) // nested, expanded, compact, compressed
+		.pipe(sourcemaps.init())
+    .pipe(sass(
+			{
+				includePaths: ['./bower_components/foundation/scss',
+      								 './node_modules/bourbon-libsass/dist'
+				]
+			}
+		))
     //.pipe(stripCssComments({preserve: false}))
     //.pipe(minifycss())
-		.pipe(sourcemaps.init())
 		.pipe(cssnano())
 		.pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'))

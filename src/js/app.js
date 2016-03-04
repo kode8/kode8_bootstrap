@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+	alert('here');
 	/* Anchor smoothscroll *////
 	$('a[href*=#]:not([href=#])').click(function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -13,7 +14,6 @@ $(document).ready(function () {
 	      }
 	    }
 	});
-
 
 	/* Onscroll enable 60fps */
 	if (!Modernizr.touchevents) {
@@ -31,13 +31,8 @@ $(document).ready(function () {
 		}, false);
 	}
 
-	/*window.sr = new scrollReveal({
-          reset: false,
-          mobile: false
-    });*/
-
-    var body = document.body,
-    timer;
+  var body = document.body,
+  timer;
 
 	var $window = $(window);
 
@@ -98,22 +93,6 @@ $(document).ready(function () {
 		  	});
 		});
 	}
-
-
-	/* Lazy load XT */
-	// $.lazyLoadXT.scrollContainer = '.masonry-container';
-	//$(".masonry-container").find("masonry-item").lazyLoadXT();
-
-	/* Lazy load images */
-	/*$.extend($.lazyLoadXT, {
-	  edgeY:  0,
-	  srcAttr: 'data-src',
-	  blankImage: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-	});
-
-	$.lazyLoadXT.onload.addClass = 'animated fadeIn';*/
-
-	/* Load any Masonry cards already in view */
 
 });
 
