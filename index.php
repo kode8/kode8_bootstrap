@@ -4,7 +4,7 @@
     <?php include('header.php'); ?>
   </head>
 <body>
-<h1>It's working.</h1>
+<h1>It's working.  </h1>
 <?php include('footer.php'); ?>
 
 </body>
