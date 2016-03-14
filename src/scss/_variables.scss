@@ -1,0 +1,43 @@
+/* Fonts */
+$font-family-gt-pressura-mono: 'pressura', sans-serif;
+$font-family-avante-garde: 'avant-garde', sans-serif;
+
+/* Body */
+$body-font-color: $theme-b-color;
+$body-font-family: $font-family-gt-pressura-mono;
+$body-font-size: rem-calc(16);
+
+/* Grid */
+$row-width: rem-calc(1250);
+$column-gutter: rem-calc(10);
+$total-columns: 24;
+
+/* Breakpoint */
+$small-breakpoint:  em-calc(680);
+$medium-breakpoint: em-calc(1024);
+$large-breakpoint:  em-calc(1440);
+$xlarge-breakpoint: em-calc(1920);
+
+/* We use these as default colors throughout */
+$primary-color: $theme-a-color;
+$secondary-color: #e7e7e7;
+$alert-color: #f04124;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
+
+/*  We use these to control header font sizes */
+$h1-font-size: rem-calc(32);
+$h2-font-size: rem-calc(28);
+$h3-font-size: rem-calc(25);
+$h4-font-size: rem-calc(20);
+$h5-font-size: rem-calc(18);
+$h6-font-size: 1rem;
+
+/* We use these for header font reduction */
+$h1-font-reduction: rem-calc(6);
+$h2-font-reduction: rem-calc(4);
+$h3-font-reduction: rem-calc(2);
+$h4-font-reduction: rem-calc(2);
+$h5-font-reduction: 0;
+$h6-font-reduction: 0;

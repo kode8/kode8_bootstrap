@@ -1,0 +1,70 @@
+/* Animation
+   ========================================================================== */
+
+// The above outputs the same CSS as using independent, granular mixins.
+@include animation-name(scale, slide);
+@include animation-duration(2s);
+@include animation-timing-function(ease);
+@include animation-iteration-count(infinite);
+
+/* Transform
+   ========================================================================== */
+@include transform(translateY(50px));
+@include transform(scale(0.9) rotate(-3deg));
+@include transform-origin(center top);
+@include transform-style(preserve-3d);
+
+/* Transition
+   ========================================================================== */
+@include transition-property(transform);
+@include transition-duration(1.0s);
+@include transition-timing-function(ease-in);
+@include transition-delay(0.5s);
+
+/* Keyframes
+   ========================================================================== */
+ @include keyframes(fadeIn) {
+   from {
+     @include transform(scale(0));
+   }
+   to {
+     @include transform(scale(1));
+   }
+ }
+
+/* Viewport Polyfill
+   ========================================================================== */
+@include viewport-polyfill('height', 100, $add);
+
+/* Box-sizing
+   ========================================================================== */
+@include box-sizing(border-box);
+
+/* Transition
+  ========================================================================== */
+@include backface-visibility(visible);
+
+
+/* Mediaqueries
+   ========================================================================== */
+
+@media #{$landscape} { }
+@media #{$portrait} { }
+
+@media #{$small-up} { }
+@media #{$small-only} { }
+
+@media #{$small-up} { }
+@media #{$small-only} { }
+
+@media #{$medium-up} { }
+@media #{$medium-only} { }
+
+@media #{$large-up} { }
+@media #{$large-only} { }
+
+@media #{$xlarge-up} { }
+@media #{$xlarge-only} { }
+
+@media #{$xxlarge-up} { }
+@media #{$xxlarge-only} { }

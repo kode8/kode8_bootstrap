@@ -1,0 +1,163 @@
+/********************/
+/****** Mixins ******/
+/********************/
+
+/* Adds a border radius to elements */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/* Dividers and margins classes
+   This loop will create padding and margin classes
+   from 0 - 100px in increments of 5px
+   m-0, m-5, mt-0, mt-5
+*/
+$i : 10;
+@while $i <= 100 {
+    .m-#{$i} {
+        margin: #{$i/2}px !important;
+    }
+    .mt-#{$i} {
+        margin-top: #{$i/2}px !important;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i/2}px !important;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i/2}px !important;
+    }
+    .ml-#{$i} {
+        margin-left: #{$i/2}px !important;
+    }
+    .p-#{$i} {
+        padding: #{$i/2}px !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i/2}px !important;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i/2}px !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i/2}px !important;
+    }
+    .pl-#{$i} {
+        padding-left: #{$i/2}px !important;
+    }
+    $i : $i + 5;
+}
+
+$i : 0;
+@media #{$medium-up} {
+  @while $i <= 100 {
+      .m-#{$i} {
+          margin: #{$i}px !important;
+      }
+      .mt-#{$i} {
+          margin-top: #{$i}px !important;
+      }
+      .mr-#{$i} {
+          margin-right: #{$i}px !important;
+      }
+      .mb-#{$i} {
+          margin-bottom: #{$i}px !important;
+      }
+      .ml-#{$i} {
+          margin-left: #{$i}px !important;
+      }
+      .p-#{$i} {
+          padding: #{$i}px !important;
+      }
+      .pt-#{$i} {
+          padding-top: #{$i}px !important;
+      }
+      .pr-#{$i} {
+          padding-right: #{$i}px !important;
+      }
+      .pb-#{$i} {
+          padding-bottom: #{$i}px !important;
+      }
+      .pl-#{$i} {
+          padding-left: #{$i}px !important;
+      }
+      $i : $i + 10;
+  }
+}
+
+// ----
+// Sass (v3.4.20)
+// Compass (v1.0.3)
+// ----
+
+// See in action @ http://www.sassmeister.com/gist/43a347037bf0afa447ae
+
+///
+// Mixin to make-up for bad VH support in iOS
+// @param {string}  $property - CSS Property to style
+// @param {number}  $vh       - Unitless, desired vh
+// @param {number}  $add      - Amount to add to vh, can be negative
+///
+@mixin vh-polyfill($property, $vh, $add: null) {
+  $media-queries:
+    "all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait)", // iPad with portrait orientation.
+    "all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape)", // iPad with landscape orientation.
+    "screen and (device-aspect-ratio: 40/71)", // iPhone 5 You can also target devices with aspect ratio.
+    "screen and (device-width: 320px) and (device-aspect-ratio: 2/3) and (orientation:portrait)"; // iPhone 4
+
+  $heights: 1024px, 768px, 500px, 480px;
+
+  $i: 1;
+  @if $add == null {
+    #{$property}: $vh * 1vh;
+
+    @each $media-query in $media-queries {
+      @media #{$media-query} {
+        #{$property}: round(nth($heights, $i) * $vh / 100);
+      }
+      $i: $i + 1;
+    }
+  }
+  @else {
+    @if $add > 0 {
+      #{$property}: calc(#{$vh * 1vh} + #{$add});
+    }
+    @else {
+      #{$property}: calc(#{$vh * 1vh} - #{$add * -1});
+    }
+
+    @each $media-query in $media-queries {
+      @media #{$media-query} {
+        #{$property}: #{round(nth($heights, $i) * $vh / 100) + $add};
+      }
+      $i: $i + 1;
+    }
+  }
+}
+
+/* Center vertically and/or horizontally an absolute positioned element */
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+/* Antialiasing mode font rendering */
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

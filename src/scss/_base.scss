@@ -1,0 +1,17 @@
+/*********************/
+/**** Base Rules *****/
+/*********************/
+
+// All elements without classes or ID's. For example input elments or h1's. They should not contain !important.
+
+body { }
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;;
+}

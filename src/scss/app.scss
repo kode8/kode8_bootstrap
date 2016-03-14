@@ -1,34 +1,45 @@
-@import "bootstrap";
+/*********************/
+/*** Site Settings ***/
+/*********************/
 
-body {
+/* Bourbon Mixins */
+@import 'bourbon';
 
-}
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;;
-}
+/* Theme */
+@import 'theme';
 
-@media #{$small-up} { }
-@media #{$small-only} { }
+/* Foundation Global */
+@import 'foundation/components/global';
 
-@media #{$medium-up} {
+/* Foundation Settings */
+@import 'settings';
 
-}
-@media #{$medium-only} { }
+/* Foundation Overide Variables */
+@import 'variables';
 
-@media #{$large-up} {
+/* Behold, here are all the Foundation components. */
+@import 'foundation/components/buttons';
+@import 'foundation/components/grid';
+@import 'foundation/components/clearing';
+@import 'foundation/components/visibility';
+@import 'foundation/components/type';
+@import 'foundation/components/forms';
 
-}
-@media #{$large-only} { }
+/* Mixins */
+@import 'mixins';
 
-@media #{$xlarge-up} { }
-@media #{$xlarge-only} { }
+/* Base */
+@import 'base';
 
-@media #{$xxlarge-up} { }
-@media #{$xxlarge-only} { }
+/* Fonts */
+@import 'fonts';
+
+/* Modifiers */
+@import 'modifiers';
+
+/* Layouts */
+@import 'layout/header';
+@import 'layout/footer';
+
+/* Modules */
+@import 'modules/contact-form';
