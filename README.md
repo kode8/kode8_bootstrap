@@ -20,10 +20,8 @@ Run...
 2. cd bootstrap
 3. Install https://imageoptim.com/ for MacOS, this is used for the automatic image compression in Gulp
 3. sudo npm install
-4. sudo bower install -g
-5. sudo npm gulp install -g
+4. bower install -g
+5. npm install gulp -g
 5. gulp
 
 That's it. Please checkout the Foundation 5 documentation for visibility and grid classes.
-
-Foundation overrides and variables and component imports can be found in /src/_bootstrap.scss

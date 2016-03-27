@@ -71,6 +71,7 @@ gulp.task('connect-sync', function() {
 	/* Watch SCSS */
 	gulp.watch([
 	 './src/scss/*.scss',
+	 './src/scss/*/*.scss'
 	], ['sass']);
 
 	/* Reload browser window on CSS updates */
@@ -91,13 +92,25 @@ gulp.task('connect-sync', function() {
 	 './dist/js/*.js'
  	]).on('change', browserSync.reload);
 
-	/* Watch Images added */
-	gulp.watch('../src/img/**', function(event) {
-    gulp.run('images');
-  });
-
 	/* Watch HTML and PHP  */
 	gulp.watch(['./*.php','./*.html']).on('change', browserSync.reload);
+
+	/* Watch newly added scss files */
+	gulp.watch(['src/scss/**/**.scss'], function() {
+    gulp.start('sass');
+  });
+
+	/* Watch Images added */
+	gulp.watch('./src/img/*.jpg', ['images']);
+
+	/* Watch newly added js files */
+	gulp.watch([
+		'./src/js/*.js',
+		'./src/js/libraries/*.js',
+		'./src/js/libraries/**/*.js',
+		'./src/js/libraries/**/**/*.js'], function() {
+    gulp.start('uglifyfile');
+  });
 
 });
 
