@@ -20,21 +20,21 @@ var gulp = require('gulp'),
 		cssnano = require('gulp-cssnano');
 
 var modernizr_settings = {
-    "cache" : true,
-    "devFile" : false,
-    "dest" : false,
-    "options" : [
-        "setClasses",
-        "addTest",
-        "html5printshiv",
-        "testProp",
-        "fnBind"
+    'cache' : true,
+    'devFile' : false,
+    'dest' : false,
+    'options' : [
+        'setClasses',
+        'addTest',
+        'html5printshiv',
+        'testProp',
+        'fnBind'
     ],
-    "tests" : [],
-    "excludeTests": [],
-    "crawl" : true,
-    "useBuffers": false,
-    "customTests" : []
+    'tests' : [],
+    'excludeTests': [],
+    'crawl' : true,
+    'useBuffers': false,
+    'customTests' : []
 };
 
 gulp.task('default', function() {
@@ -60,10 +60,10 @@ gulp.task('connect-sync', function() {
 
 	var onError = function(err) {
 			notify.onError({
-				title:    "Watch File Error",
-				subtitle: "Failure!",
-				message:  "Error: <%= error.message %>",
-				sound:    "Beep"
+				title:    'Watch File Error',
+				subtitle: 'Failure!',
+				message:  'Error: <%= error.message %>',
+				sound:    'Beep'
 			})(err);
 			this.emit('end');
 	};
@@ -76,7 +76,7 @@ gulp.task('connect-sync', function() {
 	/* Reload browser window on CSS updates */
 	gulp.watch([
 	 './dist/css/app.css',
-	]).on('change', browserSync.reload)
+ 	]).on('change', browserSync.reload);
 
 	/* Watch JS and Browsify file */
 	gulp.watch([
@@ -106,10 +106,10 @@ gulp.task('sass', function () {
 
 	var onError = function(err) {
       notify.onError({
-        title:    "SASS Compile Error",
-        subtitle: "Failure!",
-        message:  "Error: <%= error.message %>",
-        sound:    "Beep"
+        title:    'SASS Compile Error',
+        subtitle: 'Failure!',
+        message:  'Error: <%= error.message %>',
+        sound:    'Beep'
       })(err);
       this.emit('end');
   };
@@ -126,12 +126,10 @@ gulp.task('sass', function () {
 				]
 			}
 		))
-    //.pipe(stripCssComments({preserve: false}))
-    //.pipe(minifycss())
 		.pipe(cssnano())
 		.pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/css'))
-		.pipe(notify({ message: 'SASS task complete' }))
+		.pipe(notify({ message: 'SASS task complete' }));
 });
 
 /* Modernizr build */
@@ -139,10 +137,10 @@ gulp.task('modernizr', function() {
 
 		var onError = function(err) {
 	      notify.onError({
-	        title:    "Modernizr Compile Error",
-	        subtitle: "Failure!",
-	        message:  "Error: <%= error.message %>",
-	        sound:    "Beep"
+	        title:    'Modernizr Compile Error',
+	        subtitle: 'Failure!',
+	        message:  'Error: <%= error.message %>',
+	        sound:    'Beep'
 	      })(err);
 	      this.emit('end');
 	  };
@@ -154,7 +152,7 @@ gulp.task('modernizr', function() {
 		.pipe(plumber({errorHandler: onError}))
     .pipe(modernizr(modernizr_settings))
     .pipe(uglify())
-    .pipe(gulp.dest("./dist/js"))
+    .pipe(gulp.dest('./dist/js'))
 	  .pipe(notify({ message: 'Uglify <%= file.relative %>! complete' }));
 });
 
@@ -163,10 +161,10 @@ gulp.task('uglifyfile', function () {
 
 		var onError = function(err) {
 				notify.onError({
-					title:    "Uglify JS Errors",
-					subtitle: "Failure!",
-					message:  "Error: <%= error.message %>",
-					sound:    "Beep"
+					title:    'Uglify JS Errors',
+					subtitle: 'Failure!',
+					message:  'Error: <%= error.message %>',
+					sound:    'Beep'
 				})(err);
 				this.emit('end');
 		};
@@ -181,7 +179,7 @@ gulp.task('uglifyfile', function () {
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'))
-	  .pipe(notify({ message: 'Uglify <%= file.relative %>! complete' }))
+	  .pipe(notify({ message: 'Uglify <%= file.relative %>! complete' }));
 });
 
 /* Uglify supporting libraries on intial Gulp load */
@@ -189,10 +187,10 @@ gulp.task('uglifyfiles', function() {
 
 		var onError = function(err) {
 				notify.onError({
-					title:    "Initial Onload Uglifying JS Errors",
-					subtitle: "Failure!",
-					message:  "Error: <%= error.message %>",
-					sound:    "Beep"
+					title:    'Initial Onload Uglifying JS Errors',
+					subtitle: 'Failure!',
+					message:  'Error: <%= error.message %>',
+					sound:    'Beep'
 				})(err);
 				this.emit('end');
 		};
