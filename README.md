@@ -21,7 +21,7 @@ Run...
 3. Install https://imageoptim.com/ for MacOS, this is used for the automatic image compression in Gulp
 3. sudo npm install
 4. bower install -g
-5. npm install gulp -g
+5. npm install gulp
 5. gulp
 
 That's it. Please checkout the Foundation 5 documentation for visibility and grid classes.
