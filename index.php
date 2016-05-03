@@ -4,7 +4,11 @@
     <?php include('header.php'); ?>
   </head>
 <body>
-<h1>It's working. TTTT</h1>
+<div class="row">
+  <div class="small-24 columns">
+    <h1 style="position:absolute;">Test</h1>
+  </div>
+</div>
 <?php include('footer.php'); ?>
 
 </body>

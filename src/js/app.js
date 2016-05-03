@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-	alert('here');
 	/* Anchor smoothscroll *////
 	$('a[href*=#]:not([href=#])').click(function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -32,7 +31,7 @@ $(document).ready(function () {
 	}
 
   var body = document.body,
-  timer;
+  		timer;
 
 	var $window = $(window);
 

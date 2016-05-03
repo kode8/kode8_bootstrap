@@ -8,7 +8,7 @@ requirejs.config({
         jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min',
         modernizr: 'modernizr',
         foundation : 'foundation.min',
-        //velocity : 'velocity.min',
+        velocity : 'velocity.min',
         //backstretch : 'jquery.backstretch.min',
         cookie: 'jquery.cookie.min',
         //readmore: 'readmore.min',
@@ -25,7 +25,7 @@ requirejs.config({
         jquery : ['modernizr'],
         foundation : ['jquery'],
         //backstretch : ['jquery'],
-        //velocity: ['jquery'],
+        velocity: ['jquery'],
         cookie: ['jquery'],
         //readmore: ['jquery'],
         //easing :  ['jquery'],
@@ -39,7 +39,7 @@ requirejs.config({
               //'royalslider',
               'foundation',
               //'readmore',
-              //'velocity',
+              'velocity',
               //'easing',
               //'waypoints',
               //'lazyloadxt',
@@ -55,8 +55,3 @@ requirejs(['modernizr','jquery','app'], function() {
 
 
 });
-
-
-
-
-

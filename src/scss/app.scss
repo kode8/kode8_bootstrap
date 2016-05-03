@@ -6,16 +6,13 @@
 @import 'bourbon';
 
 /* Theme */
-@import 'theme';
+@import 'themes/eurotalk';
 
 /* Foundation Global */
 @import 'foundation/components/global';
 
-/* Foundation Settings */
-@import 'settings';
-
-/* Foundation Overide Variables */
-@import 'variables';
+/* Included variables, overrides Foundation settings/variables also */
+@import 'includes/variables';
 
 /* Behold, here are all the Foundation components. */
 @import 'foundation/components/grid';
@@ -24,27 +21,28 @@
 @import 'foundation/components/type';
 @import 'foundation/components/forms';
 
-/* Mixins */
-@import 'mixins';
+/* Includes Mixins */
+@import 'includes/mixins';
 
-/* Extends */
-@import 'extends';
+/* Includes Extendable Classes */
+@import 'includes/classes';
 
 /* Base */
 @import 'base';
-
-/* Fonts */
-@import 'fonts';
-
-/* Modifiers */
-@import 'modifiers';
 
 /* Layouts */
 @import 'layout/header';
 @import 'layout/footer';
 
 /* Components */
+@import 'components/alerts';
+@import 'components/breadcrumbs';
 @import 'components/buttons';
+@import 'components/forms';
+@import 'components/navs';
+@import 'components/pagination';
+@import 'components/panels';
+@import 'components/typography';
 
-/* Modules */
-@import 'modules/contact-form';
+/* Partials */
+@import 'partials/contact-form';
