@@ -1,5 +1,9 @@
+/***********************/
+/****** Variables ******/
+/***********************/
+
 /* Body */
-$body-font-color: $theme-b-color;
+$body-font-color: $pallette-a-color;
 $body-font-family: '';
 $body-font-size: rem-calc(16);
 
@@ -15,7 +19,7 @@ $large-breakpoint:  em-calc(1440);
 $xlarge-breakpoint: em-calc(1920);
 
 /* We use these as default colors throughout */
-$primary-color: $theme-a-color;
+$primary-color: $pallette-a-color;
 $secondary-color: #e7e7e7;
 $alert-color: #f04124;
 $success-color: #43AC6A;

@@ -100,9 +100,6 @@ gulp.task('connect-sync', function() {
     gulp.start('sass');
   });
 
-	/* Watch Images added */
-	gulp.watch('./src/img/*.jpg', ['images']);
-
 	/* Watch newly added js files */
 	gulp.watch([
 		'./src/js/*.js',
